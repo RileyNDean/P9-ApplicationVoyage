@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mb0-9R-pVY">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="M5J-Tq-KgD">
+            <objects>
+                <tabBarController id="Mb0-9R-pVY" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="eyh-OZ-Rxd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.6784313917" green="0.42352938649999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Q4M-u3-lVf" kind="relationship" relationship="viewControllers" id="6WW-jB-tQw"/>
+                        <segue destination="wDz-j3-orE" kind="relationship" relationship="viewControllers" id="dC2-sB-Yey"/>
+                        <segue destination="Zsg-hT-KrU" kind="relationship" relationship="viewControllers" id="z0o-3w-5mO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4p-kU-p4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2488" y="40"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="tpz-BH-WAY">
+            <objects>
+                <viewController id="wDz-j3-orE" customClass="WeatherViewController" customModule="Voyage_Voyage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j8E-Fj-DXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="x3I-Vx-9WC">
+                                <rect key="frame" x="0.0" y="44" width="390" height="717"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UDT-p5-FR6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="x3I-Vx-9WC" firstAttribute="top" secondItem="UDT-p5-FR6" secondAttribute="top" id="4W4-E8-ngX"/>
+                            <constraint firstItem="x3I-Vx-9WC" firstAttribute="trailing" secondItem="UDT-p5-FR6" secondAttribute="trailing" id="BGH-ZT-epd"/>
+                            <constraint firstItem="x3I-Vx-9WC" firstAttribute="bottom" secondItem="UDT-p5-FR6" secondAttribute="bottom" id="T6Q-4G-iiD"/>
+                            <constraint firstItem="x3I-Vx-9WC" firstAttribute="leading" secondItem="UDT-p5-FR6" secondAttribute="leading" id="x6l-wj-3rA"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Weather" image="weathericon" id="iG0-BR-LMq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bOk-8x-Mr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-298" y="-64"/>
+        </scene>
+        <!--Translate-->
+        <scene sceneID="uR0-Ks-SCa">
+            <objects>
+                <viewController id="Zsg-hT-KrU" customClass="TranslateViewController" customModule="Voyage_Voyage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wez-re-QjC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="translatebackground" translatesAutoresizingMaskIntoConstraints="NO" id="O8o-nK-Abv">
+                                <rect key="frame" x="0.0" y="44" width="390" height="717"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="to5-6M-Xo6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O8o-nK-Abv" firstAttribute="bottom" secondItem="to5-6M-Xo6" secondAttribute="bottom" id="JxI-vD-TnA"/>
+                            <constraint firstItem="O8o-nK-Abv" firstAttribute="trailing" secondItem="to5-6M-Xo6" secondAttribute="trailing" id="XxK-5N-3L6"/>
+                            <constraint firstItem="O8o-nK-Abv" firstAttribute="leading" secondItem="to5-6M-Xo6" secondAttribute="leading" id="Za6-WX-KI0"/>
+                            <constraint firstItem="O8o-nK-Abv" firstAttribute="top" secondItem="to5-6M-Xo6" secondAttribute="top" id="ukd-nL-qwb"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Translate" image="translateicon" id="orr-HW-icC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbz-53-sjj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1149" y="298"/>
+        </scene>
+        <!--Money-->
+        <scene sceneID="XY6-9L-dqf">
+            <objects>
+                <viewController id="Q4M-u3-lVf" customClass="MoneyViewController" customModule="Voyage_Voyage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rN8-7a-pBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneybackground" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kg8-7U-C0t">
+                                <rect key="frame" x="0.0" y="44" width="390" height="717"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HGP-vx-19s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kg8-7U-C0t" firstAttribute="bottom" secondItem="HGP-vx-19s" secondAttribute="bottom" id="4Hz-bD-hiK"/>
+                            <constraint firstItem="kg8-7U-C0t" firstAttribute="top" secondItem="HGP-vx-19s" secondAttribute="top" id="EVz-ux-VYH"/>
+                            <constraint firstItem="kg8-7U-C0t" firstAttribute="leading" secondItem="HGP-vx-19s" secondAttribute="leading" id="FgF-Yd-8t4"/>
+                            <constraint firstItem="kg8-7U-C0t" firstAttribute="trailing" secondItem="HGP-vx-19s" secondAttribute="trailing" id="Kww-Fy-bJ3"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Money" image="moneyicon" id="vtM-C2-tbh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wny-9h-eMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1137" y="-355"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="moneybackground" width="995" height="996"/>
+        <image name="moneyicon" width="25" height="25"/>
+        <image name="sun" width="999" height="999"/>
+        <image name="translatebackground" width="999" height="999"/>
+        <image name="translateicon" width="25" height="25"/>
+        <image name="weathericon" width="25" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
