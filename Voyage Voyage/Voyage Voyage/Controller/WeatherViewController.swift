@@ -18,6 +18,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
         cityWeather.delegate = self
         getweather()
     }
@@ -65,6 +66,5 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         descriptionLabel.text = description
         guard let weatherIconName = weather.weather[0]?.icon!.localizedCapitalized else {return}
         weatherImage.image = UIImage(named: "\(weatherIconName)")!
-        print(weatherIconName)
     }
 }

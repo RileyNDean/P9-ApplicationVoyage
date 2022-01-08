@@ -21,7 +21,7 @@ class Weather {
 
 extension Weather {
     
-   private func weatherRequest() -> URL {
+   private func weatherURLRequest() -> URL {
        let weatherAPI = "https://api.openweathermap.org/data/2.5/weather?"
        let apiKEY = "8bc788550c1e87a3b97b2e89a3135b30"
        let weatherCity =  encoreURL(encodeURL: Weather.searchCity) //Suppression useless whitespace
@@ -31,7 +31,7 @@ extension Weather {
     }
     
     func getWeather(callback: @escaping (Bool, WeatherJSONStructure?) -> Void) {
-        let weatherURL = weatherRequest()
+        let weatherURL = weatherURLRequest()
         
         task?.cancel()
         task = weatherSession.dataTask(with: weatherURL) { (data, response, error) in

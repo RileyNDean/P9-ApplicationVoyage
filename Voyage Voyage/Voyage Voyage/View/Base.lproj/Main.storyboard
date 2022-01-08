@@ -144,14 +144,28 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneybackground" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kg8-7U-C0t">
                                 <rect key="frame" x="0.0" y="44" width="390" height="717"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQP-X6-ism">
+                                <rect key="frame" x="0.0" y="710" width="390" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                    <color key="baseForegroundColor" systemColor="tintColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="testButtonmONEY:" destination="Q4M-u3-lVf" eventType="touchUpInside" id="KYz-Ph-FBw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HGP-vx-19s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kg8-7U-C0t" firstAttribute="bottom" secondItem="HGP-vx-19s" secondAttribute="bottom" id="4Hz-bD-hiK"/>
+                            <constraint firstItem="UQP-X6-ism" firstAttribute="leading" secondItem="HGP-vx-19s" secondAttribute="leading" id="9fl-yT-HX0"/>
                             <constraint firstItem="kg8-7U-C0t" firstAttribute="top" secondItem="HGP-vx-19s" secondAttribute="top" id="EVz-ux-VYH"/>
                             <constraint firstItem="kg8-7U-C0t" firstAttribute="leading" secondItem="HGP-vx-19s" secondAttribute="leading" id="FgF-Yd-8t4"/>
                             <constraint firstItem="kg8-7U-C0t" firstAttribute="trailing" secondItem="HGP-vx-19s" secondAttribute="trailing" id="Kww-Fy-bJ3"/>
+                            <constraint firstItem="HGP-vx-19s" firstAttribute="bottom" secondItem="UQP-X6-ism" secondAttribute="bottom" constant="20" id="QIG-l9-ZMI"/>
+                            <constraint firstItem="HGP-vx-19s" firstAttribute="trailing" secondItem="UQP-X6-ism" secondAttribute="trailing" id="rbD-G1-JMi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Money" image="moneyicon" id="vtM-C2-tbh"/>
@@ -170,6 +184,9 @@
         <image name="weathericon" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
