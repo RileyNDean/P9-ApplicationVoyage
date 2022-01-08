@@ -19,6 +19,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         cityWeather.delegate = self
         getweather()
+        
     }
     
  
@@ -42,7 +43,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         else if cityWeather.returnKeyType == .search
         {
             Weather.searchCity = textField.text!
-            print(Weather.searchCity)
             getweather()
             cityWeather.resignFirstResponder()
         }

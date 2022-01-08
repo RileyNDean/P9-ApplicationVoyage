@@ -20,10 +20,12 @@ extension WeatherJSONStructure: Decodable {
 }
 struct WeatherStructure {
     let description: String?
+    let icon: String?
 }
 extension WeatherStructure: Decodable {
     enum CodingKeys: String, CodingKey {
         case description = "description"
+        case icon = "icon"
     }
 }
 struct MainStructure {

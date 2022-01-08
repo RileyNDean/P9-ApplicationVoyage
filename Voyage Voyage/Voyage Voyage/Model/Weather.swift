@@ -10,7 +10,7 @@ import Foundation
 class Weather {
     static var shared = Weather()
     private init() {} //allows you to have only one Weather class
-    static var searchCity = "London"
+    static var searchCity = "New York"
     private var task: URLSessionDataTask?
     private var weatherSession = URLSession(configuration: .default)
     init(weatherSession: URLSession){
@@ -24,7 +24,7 @@ extension Weather {
    private func weatherRequest() -> URL {
        let weatherAPI = "https://api.openweathermap.org/data/2.5/weather?"
        let apiKEY = "8bc788550c1e87a3b97b2e89a3135b30"
-       let weatherCity = Weather.searchCity
+       let weatherCity =  encoreURL(encodeURL: Weather.searchCity) //Suppression useless whitespace
        let unitsWeather = "metric"
        let weatherURL = URL(string: "\(weatherAPI)q=\(weatherCity)&APPID=\(apiKEY)&units=\(unitsWeather)")
        return weatherURL!
@@ -52,6 +52,12 @@ extension Weather {
             }
         }
         task?.resume()
+    }
+    
+    func encoreURL(encodeURL: String) -> String {
+       var URLencodage = encodeURL.trimmingCharacters(in: .whitespaces)
+        URLencodage = URLencodage.replacingOccurrences(of: " ", with: "%20")  
+        return URLencodage
     }
 }
 
