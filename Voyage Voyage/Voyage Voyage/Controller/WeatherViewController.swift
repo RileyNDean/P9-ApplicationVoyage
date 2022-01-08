@@ -64,6 +64,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         tempLabel.text = "\(String(describing: Int(temp)))°"
         guard let description = weather.weather[0]?.description!.localizedCapitalized else {return}
         descriptionLabel.text = description
+        guard let weatherIconName = weather.weather[0]?.icon!.localizedCapitalized else {return}
+        weatherImage.image = UIImage(named: "\(weatherIconName)")!
+        print(weatherIconName)
     }
     
     private func toggleActivityIndicator(shown: Bool) {
