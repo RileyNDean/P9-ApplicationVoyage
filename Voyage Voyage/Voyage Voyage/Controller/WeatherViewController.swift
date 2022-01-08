@@ -9,21 +9,42 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var cityWeather: UITextField!
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getweather()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+ 
+    @IBAction func dissmissKeyboard(_ sender: UITapGestureRecognizer) {
+        cityWeather.resignFirstResponder()
     }
-    */
+    
+    func getweather() {
+        Weather.shared.getWeather { success, weather in
+            
+            if success, let weather = weather {
+                self.updateWeather(weather: weather)
+            } else {
+                
+            }
+        }
+    }
+    
+    func updateWeather(weather: WeatherJSONStructure) {
+        guard let temp = weather.main?.temp else {return}
+        tempLabel.text = "\(String(describing: Int(temp)))°"
+        guard let description = weather.weather[0]?.description!.localizedCapitalized else {return}
+        descriptionLabel.text = description
+    }
+    
+    private func toggleActivityIndicator(shown: Bool) {
+    
+    }
 
 }

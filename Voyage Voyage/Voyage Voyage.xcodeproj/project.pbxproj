@@ -18,6 +18,7 @@
 		53BF46A227883AC900FC5AC8 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A127883AC900FC5AC8 /* Weather.swift */; };
 		53BF46A427883ADA00FC5AC8 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A327883ADA00FC5AC8 /* Money.swift */; };
 		53BF46A627883AE700FC5AC8 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A527883AE700FC5AC8 /* Translate.swift */; };
+		53BF46A82789804500FC5AC8 /* WeatherJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A72789804500FC5AC8 /* WeatherJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		53BF46A127883AC900FC5AC8 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		53BF46A327883ADA00FC5AC8 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		53BF46A527883AE700FC5AC8 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
+		53BF46A72789804500FC5AC8 /* WeatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				53BF46A127883AC900FC5AC8 /* Weather.swift */,
+				53BF46A72789804500FC5AC8 /* WeatherJSON.swift */,
 				53BF46A327883ADA00FC5AC8 /* Money.swift */,
 				53BF46A527883AE700FC5AC8 /* Translate.swift */,
 			);
@@ -182,6 +185,7 @@
 				53BF46A027883A5300FC5AC8 /* TranslateViewController.swift in Sources */,
 				53BF46A427883ADA00FC5AC8 /* Money.swift in Sources */,
 				53BF469C27883A3D00FC5AC8 /* WeatherViewController.swift in Sources */,
+				53BF46A82789804500FC5AC8 /* WeatherJSON.swift in Sources */,
 				53BF46852788283900FC5AC8 /* SceneDelegate.swift in Sources */,
 				53BF46A227883AC900FC5AC8 /* Weather.swift in Sources */,
 				53BF469E27883A4800FC5AC8 /* MoneyViewController.swift in Sources */,

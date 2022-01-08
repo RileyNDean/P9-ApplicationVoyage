@@ -39,22 +39,72 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="x3I-Vx-9WC">
                                 <rect key="frame" x="0.0" y="44" width="390" height="717"/>
+                                <gestureRecognizers/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description de la météo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BJ-7t-X9M">
+                                <rect key="frame" x="0.0" y="703" width="390" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9BJ-7t-X9M" secondAttribute="height" multiplier="195:29" id="5Vs-Xe-U4s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9c" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6I-BI-q3x">
+                                <rect key="frame" x="123" y="642" width="144" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="v6I-BI-q3x" secondAttribute="height" multiplier="144:53" id="ZJ6-bT-8j9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="oSV-bf-QKA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="NewYork" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="KRu-c5-He2">
+                                <rect key="frame" x="16" y="64" width="358" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UDT-p5-FR6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="x3I-Vx-9WC" firstAttribute="top" secondItem="UDT-p5-FR6" secondAttribute="top" id="4W4-E8-ngX"/>
+                            <constraint firstItem="KRu-c5-He2" firstAttribute="leading" secondItem="UDT-p5-FR6" secondAttribute="leading" constant="16" id="60S-mZ-L9e"/>
                             <constraint firstItem="x3I-Vx-9WC" firstAttribute="trailing" secondItem="UDT-p5-FR6" secondAttribute="trailing" id="BGH-ZT-epd"/>
+                            <constraint firstItem="9BJ-7t-X9M" firstAttribute="leading" secondItem="UDT-p5-FR6" secondAttribute="leading" id="Bsm-a6-0j7"/>
+                            <constraint firstItem="9BJ-7t-X9M" firstAttribute="bottom" secondItem="UDT-p5-FR6" secondAttribute="bottom" id="Jjw-Fh-uMM"/>
+                            <constraint firstItem="v6I-BI-q3x" firstAttribute="centerX" secondItem="j8E-Fj-DXZ" secondAttribute="centerX" id="KK0-kg-2OH"/>
+                            <constraint firstItem="9BJ-7t-X9M" firstAttribute="trailing" secondItem="UDT-p5-FR6" secondAttribute="trailing" id="MK9-84-2UV"/>
+                            <constraint firstItem="9BJ-7t-X9M" firstAttribute="top" secondItem="v6I-BI-q3x" secondAttribute="bottom" constant="8" id="SMe-hE-k8W"/>
                             <constraint firstItem="x3I-Vx-9WC" firstAttribute="bottom" secondItem="UDT-p5-FR6" secondAttribute="bottom" id="T6Q-4G-iiD"/>
+                            <constraint firstItem="UDT-p5-FR6" firstAttribute="trailing" secondItem="KRu-c5-He2" secondAttribute="trailing" constant="16" id="cA0-H5-ybn"/>
+                            <constraint firstItem="KRu-c5-He2" firstAttribute="top" secondItem="UDT-p5-FR6" secondAttribute="top" constant="20" id="sGj-3K-GdL"/>
                             <constraint firstItem="x3I-Vx-9WC" firstAttribute="leading" secondItem="UDT-p5-FR6" secondAttribute="leading" id="x6l-wj-3rA"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QDM-Wg-iyK" appends="YES" id="pwl-25-qbX"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="weathericon" id="iG0-BR-LMq"/>
+                    <connections>
+                        <outlet property="cityWeather" destination="KRu-c5-He2" id="rwM-Ui-Lxa"/>
+                        <outlet property="descriptionLabel" destination="9BJ-7t-X9M" id="jC4-vF-3Qe"/>
+                        <outlet property="tempLabel" destination="v6I-BI-q3x" id="NeF-c6-4Ez"/>
+                        <outlet property="weatherImage" destination="x3I-Vx-9WC" id="Mtt-N4-In8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOk-8x-Mr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QDM-Wg-iyK">
+                    <connections>
+                        <action selector="dissmissKeyboard:" destination="wDz-j3-orE" id="ZXG-If-dpa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-298" y="-64"/>
+            <point key="canvasLocation" x="-298.46153846153845" y="-64.691943127962077"/>
         </scene>
         <!--Translate-->
         <scene sceneID="uR0-Ks-SCa">
