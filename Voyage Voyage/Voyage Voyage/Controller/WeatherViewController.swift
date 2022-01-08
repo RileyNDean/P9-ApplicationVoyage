@@ -14,14 +14,13 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var cityWeather: UITextField!
     
+    let errorController = ErrorController()
  
     override func viewDidLoad() {
         super.viewDidLoad()
         cityWeather.delegate = self
         getweather()
-        
     }
-    
  
     @IBAction func dissmissKeyboard(_ sender: UITapGestureRecognizer) {
         cityWeather.resignFirstResponder()
@@ -54,7 +53,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
             if success, let weather = weather {
                 self.updateWeather(weather: weather)
             } else {
-                
+                self.errorController.presentAlertWeather(controller: self)
             }
         }
     }
@@ -68,9 +67,4 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         weatherImage.image = UIImage(named: "\(weatherIconName)")!
         print(weatherIconName)
     }
-    
-    private func toggleActivityIndicator(shown: Bool) {
-    
-    }
-
 }

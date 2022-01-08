@@ -61,8 +61,3 @@ extension Weather {
     }
 }
 
-
-/*
-
- 
- */

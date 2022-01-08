@@ -19,6 +19,7 @@
 		53BF46A427883ADA00FC5AC8 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A327883ADA00FC5AC8 /* Money.swift */; };
 		53BF46A627883AE700FC5AC8 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A527883AE700FC5AC8 /* Translate.swift */; };
 		53BF46A82789804500FC5AC8 /* WeatherJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A72789804500FC5AC8 /* WeatherJSON.swift */; };
+		53BF46AC2789C0A500FC5AC8 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46AB2789C0A500FC5AC8 /* ErrorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		53BF46A327883ADA00FC5AC8 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		53BF46A527883AE700FC5AC8 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		53BF46A72789804500FC5AC8 /* WeatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherJSON.swift; sourceTree = "<group>"; };
+		53BF46AB2789C0A500FC5AC8 /* ErrorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				53BF469B27883A3D00FC5AC8 /* WeatherViewController.swift */,
 				53BF469D27883A4800FC5AC8 /* MoneyViewController.swift */,
 				53BF469F27883A5300FC5AC8 /* TranslateViewController.swift */,
+				53BF46AB2789C0A500FC5AC8 /* ErrorController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BF46AC2789C0A500FC5AC8 /* ErrorController.swift in Sources */,
 				53BF46A627883AE700FC5AC8 /* Translate.swift in Sources */,
 				53BF46832788283900FC5AC8 /* AppDelegate.swift in Sources */,
 				53BF46A027883A5300FC5AC8 /* TranslateViewController.swift in Sources */,
