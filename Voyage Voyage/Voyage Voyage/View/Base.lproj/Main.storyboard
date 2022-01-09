@@ -180,7 +180,7 @@
                             <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-dZ-G8r">
                                 <rect key="frame" x="20" y="215" width="358" height="119"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AO-H0-Nsy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AO-H0-Nsy">
                                         <rect key="frame" x="15" y="20" width="262" height="79"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="6AO-H0-Nsy" secondAttribute="height" multiplier="259:61" constant="-73.426229508196684" id="h2F-oR-PDa"/>
@@ -208,8 +208,9 @@
                                     <constraint firstAttribute="width" secondItem="WwS-dZ-G8r" secondAttribute="height" multiplier="358:119" id="sPO-nH-fiL"/>
                                 </constraints>
                             </view>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdQ-iq-Ebe">
+                            <pickerView alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdQ-iq-Ebe">
                                 <rect key="frame" x="20" y="379" width="358" height="98"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="KhI-En-hHo"/>
                                 </constraints>
@@ -239,6 +240,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" smartDashesType="yes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Q4M-u3-lVf" id="Sqx-dv-19E"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HGP-vx-19s"/>

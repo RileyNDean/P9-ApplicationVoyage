@@ -8,15 +8,11 @@
 import Foundation
 
 struct MoneyJSONStructure {
-    let date: String?
-    let base: String?
     let rates: takeRates?
 }
 
 extension MoneyJSONStructure: Decodable {
     enum CodingKeys: String, CodingKey {
-        case date = "date"
-        case base = "base"
         case rates = "rates"
     }
 }

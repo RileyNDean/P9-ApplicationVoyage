@@ -7,9 +7,7 @@
 
 import UIKit
 
-class MoneyViewController: UIViewController, CurrencyDelegate {
-  
-    
+class MoneyViewController: UIViewController, CurrencyDelegate {   
 
     @IBOutlet weak var dateRates: UILabel!
     @IBOutlet weak var changeRate: UILabel!
@@ -19,26 +17,33 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
     @IBOutlet weak var euroAmount: UITextField!
     var currencyChoose: takeRates?
     let calculExchange = CurrencyExchange()
+    var rateDate: MoneyJSONStructure?
     var currencyRate: Double?
+    var eurAmount: String?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         testmONEY()
         calculExchange.delegate = self
+        euroAmount.delegate = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         testmONEY()
         calculExchange.delegate = self
+        
 
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
+        euroAmount.delegate = self
+        
         testmONEY()
         changeCurrency(currency: .JPY)
+        
     }
 
     @IBAction func valideExchange(_ sender: UIButton) {
@@ -61,7 +66,7 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
     }
     
     func convertCalculExchange() {
-        guard let eurAmount = euroAmount.text else {return}
+        guard let eurAmount = self.eurAmount else {return}
         guard let exchangeRate = currencyRate else {return}
         calculExchange.calculExchange(eurMount: eurAmount, deviseMount: exchangeRate)
     }
@@ -72,7 +77,30 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
 }
 
 
+// Extension for UITextField
+extension MoneyViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string.count == 0 && range.length > 0 {
+        return true
+        } else  {
+            let realAmount = euroAmount.text! + string
+            print(realAmount)
+            guard realAmount != "" else {
+                euroAmount.text = "0"
+                return euroAmount.text == "0"
+            }
+            let maxAmount = 6
+            let currentAmount: NSString = (realAmount) as NSString
+            let newAmount: NSString = currentAmount.replacingCharacters(in: range, with: string) as NSString
+            self.eurAmount = realAmount
+            convertCalculExchange()
+            return newAmount.length <= maxAmount
+        }
+    }
+}
 
+
+//Extension for PickerView
 extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
