@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoneyViewController: UIViewController, CurrencyDelegate {   
+class MoneyViewController: UIViewController, CurrencyDelegate {
 
     @IBOutlet weak var dateRates: UILabel!
     @IBOutlet weak var changeRate: UILabel!
@@ -20,37 +20,32 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
     var rateDate: MoneyJSONStructure?
     var currencyRate: Double?
     var eurAmount: String?
+    let todaysDate = NSDate()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        testmONEY()
         calculExchange.delegate = self
         euroAmount.delegate = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        testmONEY()
         calculExchange.delegate = self
-        
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
         euroAmount.delegate = self
-        
-        testmONEY()
         changeCurrency(currency: .JPY)
-        
+        getCurrencyChange()
     }
 
     @IBAction func valideExchange(_ sender: UIButton) {
         convertCalculExchange()
     }
     
-    func testmONEY() {
+    func getCurrencyChange() {
         MoneyTrade.shared.getMoney { success, money in
             if success, let money = money {
                 self.currencyChoose = money.rates
@@ -76,31 +71,67 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
     }
 }
 
+//MARK: Extension for DateTimer Refresh
+extension  MoneyViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        dateRates.text = "Date : \(String(Date.getCurrentDate()))"
+        print(todaysDate.description)
+        checkTimer()
+    }
+    func set24HrTimer() {
+        let currentDate = NSDate()
+        let newDate = NSDate(timeInterval: 86400, since: currentDate as Date)
 
-// Extension for UITextField
-extension MoneyViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.count == 0 && range.length > 0 {
-        return true
-        } else  {
-            let realAmount = euroAmount.text! + string
-            print(realAmount)
-            guard realAmount != "" else {
-                euroAmount.text = "0"
-                return euroAmount.text == "0"
+        UserDefaults.standard.setValue(newDate, forKey: "waitingDate")
+        print("24 hours started")
+        print(currentDate.description)
+    }
+    func checkTimer() {
+        if let waitingDate:NSDate = UserDefaults.standard.value(forKey: "waitingDate") as? NSDate {
+                if (todaysDate.compare(waitingDate as Date) == ComparisonResult.orderedDescending) {
+                    getCurrencyChange()
+                    set24HrTimer()
+                }
+            else {
+                print(waitingDate.description)
             }
-            let maxAmount = 6
-            let currentAmount: NSString = (realAmount) as NSString
-            let newAmount: NSString = currentAmount.replacingCharacters(in: range, with: string) as NSString
-            self.eurAmount = realAmount
-            convertCalculExchange()
-            return newAmount.length <= maxAmount
-        }
+            }
     }
 }
 
 
-//Extension for PickerView
+//MARK: Extension for UITextField
+extension MoneyViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var realAmount = euroAmount.text! + string
+        
+        if string.count == 0 && range.length > 0 {
+            realAmount.remove(at: realAmount.index(before: realAmount.endIndex))
+            guard realAmount != "" else {
+                euroAmount.text = "1"
+                realAmountChange(euroAmount.text!)
+                return euroAmount.text == "1"
+            }
+            realAmountChange(realAmount)
+            convertCalculExchange()
+        return true
+        } else  {
+            let maxAmount = 6
+            let currentAmount: NSString = (realAmount) as NSString
+            let newAmount: NSString = currentAmount.replacingCharacters(in: range, with: string) as NSString
+            realAmountChange(realAmount)
+            convertCalculExchange()
+            return newAmount.length <= maxAmount
+        }
+    }
+    
+    func realAmountChange(_ realAmount: String) {
+        self.eurAmount = realAmount
+    }
+}
+
+
+//MARK: Extension for PickerView
 extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -154,7 +185,18 @@ extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         let currencyAcronym = currencyCut.last!
         return String(currencyAcronym)
     }
-    
 }
 
 
+extension Date {
+
+ static func getCurrentDate() -> String {
+
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "EEEE d MMM  yyyy"
+
+        return dateFormatter.string(from: Date())
+
+    }
+}
