@@ -41,10 +41,6 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
         getCurrencyChange()
     }
 
-    @IBAction func valideExchange(_ sender: UIButton) {
-        convertCalculExchange()
-    }
-    
     func getCurrencyChange() {
         MoneyTrade.shared.getMoney { success, money in
             if success, let money = money {

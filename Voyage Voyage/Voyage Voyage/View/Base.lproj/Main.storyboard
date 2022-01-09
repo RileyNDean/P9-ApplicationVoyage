@@ -219,19 +219,6 @@
                                     <outlet property="delegate" destination="Q4M-u3-lVf" id="83R-PE-9Lw"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V44-I3-bku">
-                                <rect key="frame" x="99" y="587" width="199" height="61"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="V44-I3-bku" secondAttribute="height" multiplier="199:61" id="anP-Sh-yaG"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Convert my €">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="valideExchange:" destination="Q4M-u3-lVf" eventType="touchUpInside" id="rAF-8S-Bmv"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="€" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T4v-xb-CCW">
                                 <rect key="frame" x="69" y="498" width="261" height="34"/>
                                 <constraints>
@@ -253,7 +240,6 @@
                             <constraint firstItem="HGP-vx-19s" firstAttribute="trailing" secondItem="p5S-5L-eTW" secondAttribute="trailing" constant="20" id="5IS-Gm-6Bt"/>
                             <constraint firstItem="T4v-xb-CCW" firstAttribute="top" secondItem="fdQ-iq-Ebe" secondAttribute="bottom" constant="21" id="6GO-fl-jpr"/>
                             <constraint firstItem="WwS-dZ-G8r" firstAttribute="leading" secondItem="HGP-vx-19s" secondAttribute="leading" constant="20" id="9Ez-vf-PdN"/>
-                            <constraint firstItem="V44-I3-bku" firstAttribute="leading" secondItem="HGP-vx-19s" secondAttribute="leading" constant="99" id="9aC-ot-nQI"/>
                             <constraint firstItem="kg8-7U-C0t" firstAttribute="top" secondItem="HGP-vx-19s" secondAttribute="top" id="EVz-ux-VYH"/>
                             <constraint firstItem="kg8-7U-C0t" firstAttribute="leading" secondItem="HGP-vx-19s" secondAttribute="leading" id="FgF-Yd-8t4"/>
                             <constraint firstItem="HGP-vx-19s" firstAttribute="trailing" secondItem="WwS-dZ-G8r" secondAttribute="trailing" constant="12" id="HlV-Ac-XMp"/>
@@ -263,9 +249,7 @@
                             <constraint firstItem="fdQ-iq-Ebe" firstAttribute="trailing" secondItem="WwS-dZ-G8r" secondAttribute="trailing" id="RYg-9l-rnB"/>
                             <constraint firstItem="WwS-dZ-G8r" firstAttribute="centerY" secondItem="rN8-7a-pBQ" secondAttribute="centerY" constant="-106" id="h9y-jS-EwU"/>
                             <constraint firstItem="fdQ-iq-Ebe" firstAttribute="leading" secondItem="WwS-dZ-G8r" secondAttribute="leading" id="hJZ-66-usX"/>
-                            <constraint firstItem="HGP-vx-19s" firstAttribute="trailing" secondItem="V44-I3-bku" secondAttribute="trailing" constant="92" id="qt6-fX-jMZ"/>
                             <constraint firstItem="p5S-5L-eTW" firstAttribute="top" secondItem="HGP-vx-19s" secondAttribute="top" constant="20" id="riP-6M-3jc"/>
-                            <constraint firstItem="V44-I3-bku" firstAttribute="top" secondItem="T4v-xb-CCW" secondAttribute="bottom" constant="55" id="saU-aB-Bxg"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="7eY-7O-Jgk" appends="YES" id="auC-ro-ojX"/>
