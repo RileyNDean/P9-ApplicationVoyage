@@ -20,14 +20,6 @@ class MoneyTrade {
 
 extension MoneyTrade {
     
-    private func moneyURLRequest() -> URL {
-        let moneyAPI = "http://data.fixer.io/api/latest?"
-        let apiKEY = "940fd92a205e34d9d783bca9312a8f07"
-        let format = "1"
-        let moneyURL = URL(string: "\(moneyAPI)access_key=\(apiKEY)&format=\(format)")
-        return moneyURL!
-    }
-    
     func getMoney(callback: @escaping (Bool,MoneyJSONStructure?) -> Void) {
         let moneyURL = moneyURLRequest()
         
@@ -46,12 +38,20 @@ extension MoneyTrade {
                     callback(false, nil)
                     return
                 }
-                
-                print(responseJSON.date)
-                
                 callback(true, responseJSON)
             }
         }
         task?.resume()
+    }
+}
+
+
+extension MoneyTrade {
+    private func moneyURLRequest() -> URL {
+        let moneyAPI = "http://data.fixer.io/api/latest?"
+        let apiKEY = "940fd92a205e34d9d783bca9312a8f07"
+        let format = "1"
+        let moneyURL = URL(string: "\(moneyAPI)access_key=\(apiKEY)&format=\(format)")
+        return moneyURL!
     }
 }

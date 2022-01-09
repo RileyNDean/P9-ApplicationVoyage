@@ -21,6 +21,8 @@
 		53BF46A82789804500FC5AC8 /* WeatherJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46A72789804500FC5AC8 /* WeatherJSON.swift */; };
 		53BF46AC2789C0A500FC5AC8 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46AB2789C0A500FC5AC8 /* ErrorController.swift */; };
 		53BF46B02789D0A300FC5AC8 /* MoneyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46AF2789D0A300FC5AC8 /* MoneyJSON.swift */; };
+		53BF46B4278B3C8200FC5AC8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46B3278B3C8200FC5AC8 /* Currency.swift */; };
+		53BF46B7278B488500FC5AC8 /* String Protocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46B6278B488500FC5AC8 /* String Protocol+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		53BF46A72789804500FC5AC8 /* WeatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherJSON.swift; sourceTree = "<group>"; };
 		53BF46AB2789C0A500FC5AC8 /* ErrorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 		53BF46AF2789D0A300FC5AC8 /* MoneyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyJSON.swift; sourceTree = "<group>"; };
+		53BF46B3278B3C8200FC5AC8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		53BF46B6278B488500FC5AC8 /* String Protocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Protocol+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		53BF46812788283900FC5AC8 /* Voyage Voyage */ = {
 			isa = PBXGroup;
 			children = (
+				53BF46B5278B486400FC5AC8 /* extension */,
 				53BF46822788283900FC5AC8 /* AppDelegate.swift */,
 				53BF46842788283900FC5AC8 /* SceneDelegate.swift */,
 				53BF46902788283B00FC5AC8 /* Info.plist */,
@@ -99,6 +104,7 @@
 				53BF46A72789804500FC5AC8 /* WeatherJSON.swift */,
 				53BF46A327883ADA00FC5AC8 /* Money.swift */,
 				53BF46AF2789D0A300FC5AC8 /* MoneyJSON.swift */,
+				53BF46B3278B3C8200FC5AC8 /* Currency.swift */,
 				53BF46A527883AE700FC5AC8 /* Translate.swift */,
 			);
 			path = Model;
@@ -113,6 +119,14 @@
 				53BF46AB2789C0A500FC5AC8 /* ErrorController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		53BF46B5278B486400FC5AC8 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				53BF46B6278B488500FC5AC8 /* String Protocol+.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BF46B4278B3C8200FC5AC8 /* Currency.swift in Sources */,
+				53BF46B7278B488500FC5AC8 /* String Protocol+.swift in Sources */,
 				53BF46AC2789C0A500FC5AC8 /* ErrorController.swift in Sources */,
 				53BF46A627883AE700FC5AC8 /* Translate.swift in Sources */,
 				53BF46832788283900FC5AC8 /* AppDelegate.swift in Sources */,

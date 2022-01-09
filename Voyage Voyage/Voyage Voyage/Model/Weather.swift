@@ -16,19 +16,9 @@ class Weather {
     init(weatherSession: URLSession){
         self.weatherSession = weatherSession
     }
-    
 }
 
 extension Weather {
-    
-   private func weatherURLRequest() -> URL {
-       let weatherAPI = "https://api.openweathermap.org/data/2.5/weather?"
-       let apiKEY = "8bc788550c1e87a3b97b2e89a3135b30"
-       let weatherCity =  encoreURL(encodeURL: Weather.searchCity) //Suppression useless whitespace
-       let unitsWeather = "metric"
-       let weatherURL = URL(string: "\(weatherAPI)q=\(weatherCity)&APPID=\(apiKEY)&units=\(unitsWeather)")
-       return weatherURL!
-    }
     
     func getWeather(callback: @escaping (Bool, WeatherJSONStructure?) -> Void) {
         let weatherURL = weatherURLRequest()
@@ -53,11 +43,23 @@ extension Weather {
         }
         task?.resume()
     }
+}
+
+
+extension Weather {
+    
+    private func weatherURLRequest() -> URL {
+        let weatherAPI = "https://api.openweathermap.org/data/2.5/weather?"
+        let apiKEY = "8bc788550c1e87a3b97b2e89a3135b30"
+        let weatherCity =  encoreURL(encodeURL: Weather.searchCity) //Suppression useless whitespace
+        let unitsWeather = "metric"
+        let weatherURL = URL(string: "\(weatherAPI)q=\(weatherCity)&APPID=\(apiKEY)&units=\(unitsWeather)")
+        return weatherURL!
+     }
     
     func encoreURL(encodeURL: String) -> String {
        var URLencodage = encodeURL.trimmingCharacters(in: .whitespaces)
-        URLencodage = URLencodage.replacingOccurrences(of: " ", with: "%20")  
+        URLencodage = URLencodage.replacingOccurrences(of: " ", with: "%20")
         return URLencodage
     }
 }
-
