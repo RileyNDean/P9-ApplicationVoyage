@@ -17,7 +17,8 @@ class Translate {
     private static let translateAPIKey = "key=trnsl.1.1.20220110T102058Z.105f566fbff69b26.da39ca19cc81893c4dda2149efeb28fcbd875c6b"
     private var task: URLSessionDataTask?
     
-    static var textTranslate = "hipsun es dracones"
+    static var textTranslate = "J'aime le chocolat"
+    static var langDestination = "en"
    
     
     private var baseLangSession = URLSession(configuration: .default)
@@ -66,7 +67,7 @@ extension Translate {
         request.httpMethod = "POST"
         
         let option = "fr"
-        let lang = "en"
+        let lang = Translate.langDestination
         let text = Translate.textTranslate
         let body = "lang=\(lang)&\(Translate.translateAPIKey)&text=\(text)&option=\(option)"
         request.httpBody = body.data(using: .utf8)

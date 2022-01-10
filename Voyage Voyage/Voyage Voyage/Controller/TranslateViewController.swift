@@ -12,8 +12,8 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak var baseText: UITextView!
     @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var langDetected: UILabel!
+    @IBOutlet weak var selectLang: UIButton!
     let translateDelegate = Translation()
-    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -24,14 +24,14 @@ class TranslateViewController: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         translateDelegate.delegate = self
-       
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         baseText.delegate = self
         overrideUserInterfaceStyle = .dark
+        loadMenu()
     }
-    
  
     @IBAction func dissmissKeyboard(_ sender: Any) {
         baseText.resignFirstResponder()
@@ -46,8 +46,6 @@ class TranslateViewController: UIViewController {
             }
         }
     }
-    
-    
 }
 
 extension TranslateViewController: TranslateDelegate {
@@ -68,9 +66,62 @@ extension TranslateViewController: UITextViewDelegate {
             textTranslated.remove(at: textTranslated.index(before: textTranslated.endIndex))
             return true
         } else {
+            translatedText.text = ""
             translateDelegate.modifyText(textTranslated)
             traslate()
             return true
         }
+    }
+}
+
+extension TranslateViewController {
+    
+    private func loadMenu() {
+        let langMenu = createLangMenu()
+        let Menulangage = UIMenu(title: "Select Langage", options: .displayInline, children: langMenu)
+        
+        selectLang.menu = Menulangage
+        selectLang.showsMenuAsPrimaryAction = true
+        selectLang.isContextMenuInteractionEnabled = true
+        
+    }
+    
+    private func createLangMenu() -> [UIAction] {
+        let langages = translateDelegate.langs
+        var children = [UIAction]()
+        for i in 0..<langages.count {
+            children.append(createLangAction(langages[i]))
+        }
+        
+        return children
+    }
+    private func createLangAction(_ langage: String) -> UIAction {
+        return UIAction(title: langage) { _
+            in
+            self.selectLang.setTitle(self.translateDelegate.getDestinationLang(langage), for: .normal)
+            self.translateDelegate.getDestinationLangTranslate(langage)
+            self.traslate()
+        }
+    }
+    
+    private func createMenu(actionTitle: String? = nil) -> UIMenu {
+        let langMenu = createLangMenu()
+        let Menulangage = UIMenu(title: "Select Langage", options: .displayInline, children: langMenu)
+        
+        if let actionTitle = actionTitle {
+            Menulangage.children.forEach { action in
+                guard let action = action as? UIAction else {
+                    return
+                }
+                if action.title == actionTitle {
+                    action.state = .on
+                }
+            }
+        } else {
+            let action = Menulangage.children.first as? UIAction
+            action?.state = .on
+        }
+        
+        return Menulangage
     }
 }
