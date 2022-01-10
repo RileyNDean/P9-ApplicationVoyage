@@ -8,7 +8,7 @@
 import Foundation
 
 
-extension StringProtocol { 
+extension StringProtocol {  // cut string into a array
     var cutString: [SubSequence] {
         var cutString: [SubSequence] = []
         enumerateSubstrings(in: startIndex..., options: .byWords) { _, range, _, _ in
@@ -18,7 +18,7 @@ extension StringProtocol {
     }
 }
 
-extension String {
+extension String { //replace a all of one caracter in a string
     func withReplacedCharacters(_ oldChar: String, by newChar: String) -> String {
         let newStr = self.replacingOccurrences(of: oldChar, with: newChar, options: .literal, range: nil)
         return newStr

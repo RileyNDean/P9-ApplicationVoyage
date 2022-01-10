@@ -14,9 +14,9 @@
             filePath = "Voyage Voyage/Model/Translate/Translate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "getBaseLang(callback:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getTranslatedText(callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

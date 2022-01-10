@@ -25,6 +25,7 @@
 		53BF46B7278B488500FC5AC8 /* String Protocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46B6278B488500FC5AC8 /* String Protocol+.swift */; };
 		53BF46B9278C11C600FC5AC8 /* Date +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46B8278C11C400FC5AC8 /* Date +.swift */; };
 		53BF46BE278C4EFB00FC5AC8 /* TranslateJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46BD278C4EFA00FC5AC8 /* TranslateJSON.swift */; };
+		53BF46C0278C7EE900FC5AC8 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46BF278C7EE900FC5AC8 /* Translation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		53BF46B6278B488500FC5AC8 /* String Protocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Protocol+.swift"; sourceTree = "<group>"; };
 		53BF46B8278C11C400FC5AC8 /* Date +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date +.swift"; sourceTree = "<group>"; };
 		53BF46BD278C4EFA00FC5AC8 /* TranslateJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateJSON.swift; sourceTree = "<group>"; };
+		53BF46BF278C7EE900FC5AC8 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				53BF46A527883AE700FC5AC8 /* Translate.swift */,
 				53BF46BD278C4EFA00FC5AC8 /* TranslateJSON.swift */,
+				53BF46BF278C7EE900FC5AC8 /* Translation.swift */,
 			);
 			path = Translate;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				53BF46B9278C11C600FC5AC8 /* Date +.swift in Sources */,
 				53BF469C27883A3D00FC5AC8 /* WeatherViewController.swift in Sources */,
 				53BF46A82789804500FC5AC8 /* WeatherJSON.swift in Sources */,
+				53BF46C0278C7EE900FC5AC8 /* Translation.swift in Sources */,
 				53BF46852788283900FC5AC8 /* SceneDelegate.swift in Sources */,
 				53BF46A227883AC900FC5AC8 /* Weather.swift in Sources */,
 				53BF46BE278C4EFB00FC5AC8 /* TranslateJSON.swift in Sources */,

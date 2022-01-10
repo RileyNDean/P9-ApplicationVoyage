@@ -16,7 +16,9 @@ class Translate {
     private static let translateURL = URL(string: "https://translate.yandex.net/api/v1.5/tr.json/translate?")!
     private static let translateAPIKey = "key=trnsl.1.1.20220110T102058Z.105f566fbff69b26.da39ca19cc81893c4dda2149efeb28fcbd875c6b"
     private var task: URLSessionDataTask?
-    private static let textTranslate = "hipsun es dracones"
+    
+    static var textTranslate = "hipsun es dracones"
+   
     
     private var baseLangSession = URLSession(configuration: .default)
     private var textTranslateSession = URLSession(configuration: .default)
@@ -48,8 +50,8 @@ extension Translate {
                     return
                 }
                 guard let responseJSON = try? JSONDecoder().decode(TextTranslate.self, from: data) else {
-                    let responseString = String(data: data, encoding: .utf8)
-                    print(responseString)
+                    //let responseString = String(data: data, encoding: .utf8)
+                   // print(responseString)
                     callback(false,nil)
                     return
                 }
@@ -65,12 +67,24 @@ extension Translate {
         
         let option = "fr"
         let lang = "en"
-        let text = Translate.textTranslate.withReplacedCharacters(" ", by: "%20")
+        let text = Translate.textTranslate
         let body = "lang=\(lang)&\(Translate.translateAPIKey)&text=\(text)&option=\(option)"
         request.httpBody = body.data(using: .utf8)
         return request
     }
 }
+
+extension Translate {
+    
+
+    
+    
+}
+
+
+
+
+
 // lang=fr&key=trnsl.1.1.20220110T102058Z.105f566fbff69b26.da39ca19cc81893c4dda2149efeb28fcbd875c6b&text=i love coconut&option=en
 /* //MARK: Get base langage
  extension Translate {

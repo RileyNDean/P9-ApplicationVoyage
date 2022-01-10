@@ -98,10 +98,10 @@ extension MoneyViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var realAmount = euroAmount.text! + string
         
-        if string.count == 0 && range.length > 0 {
-            realAmount.remove(at: realAmount.index(before: realAmount.endIndex))
-            guard realAmount != "" else {
-                euroAmount.text = "1"
+        if string.count == 0 && range.length > 0 { //si on supprime quelque chose
+            realAmount.remove(at: realAmount.index(before: realAmount.endIndex)) //retire la derniere lettre (before index = avant dernier index car le dernier est out of range)
+            guard realAmount != "" else { //on regarde si il est vide ou pas
+                euroAmount.text = "1" // si il est vide on rajoute quelque chose
                 realAmountChange(euroAmount.text!)
                 return euroAmount.text == "1"
             }
@@ -173,7 +173,7 @@ extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    func takeCurrencyAcronym(_ currency: String) -> String {
+    func takeCurrencyAcronym(_ currency: String) -> String { // cut string for acronym
         let currencyCut = currency.cutString
         let currencyAcronym = currencyCut.last!
         return String(currencyAcronym)
