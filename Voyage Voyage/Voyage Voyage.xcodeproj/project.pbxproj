@@ -23,6 +23,8 @@
 		53BF46B02789D0A300FC5AC8 /* MoneyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46AF2789D0A300FC5AC8 /* MoneyJSON.swift */; };
 		53BF46B4278B3C8200FC5AC8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46B3278B3C8200FC5AC8 /* Currency.swift */; };
 		53BF46B7278B488500FC5AC8 /* String Protocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46B6278B488500FC5AC8 /* String Protocol+.swift */; };
+		53BF46B9278C11C600FC5AC8 /* Date +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46B8278C11C400FC5AC8 /* Date +.swift */; };
+		53BF46BE278C4EFB00FC5AC8 /* TranslateJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF46BD278C4EFA00FC5AC8 /* TranslateJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		53BF46AF2789D0A300FC5AC8 /* MoneyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyJSON.swift; sourceTree = "<group>"; };
 		53BF46B3278B3C8200FC5AC8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		53BF46B6278B488500FC5AC8 /* String Protocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Protocol+.swift"; sourceTree = "<group>"; };
+		53BF46B8278C11C400FC5AC8 /* Date +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date +.swift"; sourceTree = "<group>"; };
+		53BF46BD278C4EFA00FC5AC8 /* TranslateJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +104,9 @@
 		53BF46972788284F00FC5AC8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				53BF46A127883AC900FC5AC8 /* Weather.swift */,
-				53BF46A72789804500FC5AC8 /* WeatherJSON.swift */,
-				53BF46A327883ADA00FC5AC8 /* Money.swift */,
-				53BF46AF2789D0A300FC5AC8 /* MoneyJSON.swift */,
-				53BF46B3278B3C8200FC5AC8 /* Currency.swift */,
-				53BF46A527883AE700FC5AC8 /* Translate.swift */,
+				53BF46BC278C27C600FC5AC8 /* Translate */,
+				53BF46BB278C27B100FC5AC8 /* Currency Exchange */,
+				53BF46BA278C273800FC5AC8 /* Weather */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,8 +126,37 @@
 			isa = PBXGroup;
 			children = (
 				53BF46B6278B488500FC5AC8 /* String Protocol+.swift */,
+				53BF46B8278C11C400FC5AC8 /* Date +.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		53BF46BA278C273800FC5AC8 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				53BF46A72789804500FC5AC8 /* WeatherJSON.swift */,
+				53BF46A127883AC900FC5AC8 /* Weather.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		53BF46BB278C27B100FC5AC8 /* Currency Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				53BF46B3278B3C8200FC5AC8 /* Currency.swift */,
+				53BF46AF2789D0A300FC5AC8 /* MoneyJSON.swift */,
+				53BF46A327883ADA00FC5AC8 /* Money.swift */,
+			);
+			path = "Currency Exchange";
+			sourceTree = "<group>";
+		};
+		53BF46BC278C27C600FC5AC8 /* Translate */ = {
+			isa = PBXGroup;
+			children = (
+				53BF46A527883AE700FC5AC8 /* Translate.swift */,
+				53BF46BD278C4EFA00FC5AC8 /* TranslateJSON.swift */,
+			);
+			path = Translate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,10 +238,12 @@
 				53BF46B02789D0A300FC5AC8 /* MoneyJSON.swift in Sources */,
 				53BF46A027883A5300FC5AC8 /* TranslateViewController.swift in Sources */,
 				53BF46A427883ADA00FC5AC8 /* Money.swift in Sources */,
+				53BF46B9278C11C600FC5AC8 /* Date +.swift in Sources */,
 				53BF469C27883A3D00FC5AC8 /* WeatherViewController.swift in Sources */,
 				53BF46A82789804500FC5AC8 /* WeatherJSON.swift in Sources */,
 				53BF46852788283900FC5AC8 /* SceneDelegate.swift in Sources */,
 				53BF46A227883AC900FC5AC8 /* Weather.swift in Sources */,
+				53BF46BE278C4EFB00FC5AC8 /* TranslateJSON.swift in Sources */,
 				53BF469E27883A4800FC5AC8 /* MoneyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

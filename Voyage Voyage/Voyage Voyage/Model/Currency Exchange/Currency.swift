@@ -24,7 +24,7 @@ class CurrencyExchange {
     func calculExchange(eurMount: String, deviseMount: Double) {
         let amount = Double(eurMount)!
         let change = amount * Double(round(100 * deviseMount)/100) //Multiply the double to round 10^(the number of decimal place)
-        exchangeCalculate = String(change)
+        exchangeCalculate = String(format: "%.2f", change)
         delegate?.currencyCalculated(currencyMount: exchangeCalculate)
     }
 }

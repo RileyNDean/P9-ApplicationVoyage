@@ -71,7 +71,6 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
 extension  MoneyViewController {
     override func viewWillAppear(_ animated: Bool) {
         dateRates.text = "Date : \(String(Date.getCurrentDate()))"
-        print(todaysDate.description)
         checkTimer()
     }
     func set24HrTimer() {
@@ -79,8 +78,6 @@ extension  MoneyViewController {
         let newDate = NSDate(timeInterval: 86400, since: currentDate as Date)
 
         UserDefaults.standard.setValue(newDate, forKey: "waitingDate")
-        print("24 hours started")
-        print(currentDate.description)
     }
     func checkTimer() {
         if let waitingDate:NSDate = UserDefaults.standard.value(forKey: "waitingDate") as? NSDate {
@@ -183,16 +180,3 @@ extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
-
-extension Date {
-
- static func getCurrentDate() -> String {
-
-        let dateFormatter = DateFormatter()
-
-        dateFormatter.dateFormat = "EEEE d MMM  yyyy"
-
-        return dateFormatter.string(from: Date())
-
-    }
-}
