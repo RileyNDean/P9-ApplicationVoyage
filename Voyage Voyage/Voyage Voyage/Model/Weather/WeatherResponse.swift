@@ -8,29 +8,44 @@
 import Foundation
 
 
+struct WeatherData {
+    
+    var temp: Float?
+    var description: String?
+    var icon: String?
+    
+}
+
+
 struct WeatherJSONStructure {
     let weather: [WeatherStructure?]
     let main: MainStructure?
 }
+
+
 extension WeatherJSONStructure: Decodable {
     enum CodingKeys: String, CodingKey {
         case weather = "weather"
         case main = "main"
     }
 }
+
 struct WeatherStructure {
     let description: String?
     let icon: String?
 }
+
 extension WeatherStructure: Decodable {
     enum CodingKeys: String, CodingKey {
         case description = "description"
         case icon = "icon"
     }
 }
+
 struct MainStructure {
     let temp: Float?
 }
+
 extension MainStructure: Decodable {
     enum CodingKeys: String, CodingKey {
         case temp = "temp"

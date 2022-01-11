@@ -7,8 +7,21 @@
 
 import Foundation
 
+struct ExchangeData {
+    
+    var JPY: Double?
+    var USD: Double?
+    var GBP: Double?
+    var AUD: Double?
+    
+    let currency = ["Japan - JPY",
+    "United States -  USD",
+    "United Kingdoms - GBP",
+    "Austral - AUD"]
+}
+
 struct ExchangeJSONStructure {
-    let rates: takeRates?
+    let rates: TakeRates?
 }
 
 extension ExchangeJSONStructure: Decodable {
@@ -17,14 +30,14 @@ extension ExchangeJSONStructure: Decodable {
     }
 }
 
-struct takeRates {
+struct TakeRates {
     let JPY: Double?
     let USD: Double?
     let GBP: Double?
     let AUD: Double?
 }
 
-extension takeRates: Decodable {
+extension TakeRates: Decodable {
     enum CodingKeys: String, CodingKey {
         case JPY = "JPY"
         case USD = "USD"

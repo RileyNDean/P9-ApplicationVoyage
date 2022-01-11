@@ -13,15 +13,19 @@ class Exchange {
     
     private var task: URLSessionDataTask?
     private var exchangeSession = URLSession(configuration: .default)
+    
     init(exchangeSession: URLSession){
         self.exchangeSession = exchangeSession
     }
+    
 }
 
+//MARK: Extension for the request
 extension Exchange {
     
-    func getExchange(callback: @escaping (Bool,ExchangeJSONStructure?) -> Void) {
-        let exchangeURL = exchangeURLRequest()
+    func getExchange(callback: @escaping (Bool,ExchangeData?) -> Void) {
+
+        let exchangeURL = exchangeURL()
         
         task?.cancel()
         task = exchangeSession.dataTask(with: exchangeURL) { (data, response, error) in
@@ -38,17 +42,21 @@ extension Exchange {
                     callback(false, nil)
                     return
                 }
-                callback(true, responseJSON)
+                
+                let USD = responseJSON.rates?.USD
+                let JPY = responseJSON.rates?.JPY
+                let GBP = responseJSON.rates?.GBP
+                let AUD = responseJSON.rates?.AUD
+                
+                callback(true, ExchangeData(JPY: JPY, USD: USD, GBP: GBP, AUD: AUD))
             }
         }
         task?.resume()
     }
-}
-
-extension Exchange {
-    private func exchangeURLRequest() -> URL {
+    
+    private func exchangeURL() -> URL {
         let moneyAPI = "http://data.fixer.io/api/latest?"
-        let apiKEY = "940fd92a205e34d9d783bca9312a8f07"
+        let apiKEY = "d5bfb3f54ac76483f0fea9a8bf034578"
         let format = "1"
         let exchangeURL = URL(string: "\(moneyAPI)access_key=\(apiKEY)&format=\(format)")
         return exchangeURL!

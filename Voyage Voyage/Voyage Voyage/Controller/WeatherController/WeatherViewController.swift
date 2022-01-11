@@ -57,12 +57,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func updateWeather(weather: WeatherJSONStructure) {
-        guard let temp = weather.main?.temp else {return}
-        tempLabel.text = "\(String(describing: Int(temp)))°"
-        guard let description = weather.weather[0]?.description!.localizedCapitalized else {return}
-        descriptionLabel.text = description
-        guard let weatherIconName = weather.weather[0]?.icon!.localizedCapitalized else {return}
-        weatherImage.image = UIImage(named: "\(weatherIconName)")!
+    func updateWeather(weather: WeatherData) {
+        guard let temp = weather.temp else {return}
+        tempLabel.text = "\(String(describing: Int(temp)))°" //update temperature
+        guard let description = weather.description?.localizedCapitalized else {return}
+        descriptionLabel.text = description //update the description
+        guard let weatherIconName = weather.icon?.localizedCapitalized else {return}
+        weatherImage.image = UIImage(named: "\(weatherIconName)")! //change background image with the weather
     }
 }

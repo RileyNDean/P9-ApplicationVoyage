@@ -22,14 +22,14 @@ class Translation {
     func getDestinationLang(_ lang: String) -> String {
         let langCut = lang.cutString
         let baseLang = langCut.last!
-        let langAcronym = String(baseLang.uppercased())
+        let langAcronym = String(baseLang.uppercased()) //upcase the acronym
         return langAcronym
     }
     
     func getDestinationLangTranslate(_ lang: String){
         let langCut = lang.cutString
         let baseLang = langCut.last!
-        let langAcronym = String(baseLang.lowercased())
+        let langAcronym = String(baseLang.lowercased()) //lowercase the acronym
         Translate.destinationLanguage = langAcronym
     }
     

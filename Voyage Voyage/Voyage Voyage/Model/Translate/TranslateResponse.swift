@@ -7,12 +7,7 @@
 
 import Foundation
 
-struct BaseLang: Codable {
-    var lang: String
-}
-
 struct TranslatedText: Decodable {
     let text: [String]
     let lang: String
 }
-

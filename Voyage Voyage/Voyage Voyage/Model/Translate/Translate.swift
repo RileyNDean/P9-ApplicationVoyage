@@ -12,7 +12,6 @@ class Translate {
     static var shared = Translate()
     private init() {}
     
-    private static let baseLangageURL = URL(string: "https://translate.yandex.net/api/v1.5/tr.json/detect?")!
     private static let translateURL = URL(string: "https://translate.yandex.net/api/v1.5/tr.json/translate?")!
     private static let translateAPIKey = "key=trnsl.1.1.20220110T102058Z.105f566fbff69b26.da39ca19cc81893c4dda2149efeb28fcbd875c6b"
     private var task: URLSessionDataTask?
@@ -29,7 +28,7 @@ class Translate {
     }
 }
 
-
+//MARK: extension for the request
 extension Translate {
     
     func getTranslatedText(callback: @escaping (Bool, TranslatedText?) -> Void) {

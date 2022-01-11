@@ -13,17 +13,19 @@ class Weather {
     static var citySearched = "New York"
     private var task: URLSessionDataTask?
     private var weatherSession = URLSession(configuration: .default)
-    init(weatherSession: URLSession){
+    
+    init(weatherSession: URLSession){ //to get weatherSession private but usable for the tests
         self.weatherSession = weatherSession
     }
 }
 
 extension Weather {
     
-    func getWeather(callback: @escaping (Bool, WeatherJSONStructure?) -> Void) {
+    func getWeather(callback: @escaping (Bool, WeatherData?) -> Void) {
         let weatherURL = weatherURLRequest()
         
         task?.cancel()
+        
         task = weatherSession.dataTask(with: weatherURL) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
@@ -38,28 +40,23 @@ extension Weather {
                     callback(false, nil)
                     return
                 }
-                callback(true, responseJSON)
+                let temp = responseJSON.main?.temp!
+                let description = responseJSON.weather[0]?.description
+                let icon = responseJSON.weather[0]?.icon
+                callback(true, WeatherData(temp: temp!, description: description!, icon: icon!))
             }
         }
+        
         task?.resume()
     }
-}
-
-
-extension Weather {
     
+    //get URL for the request GET
     private func weatherURLRequest() -> URL {
         let weatherAPI = "https://api.openweathermap.org/data/2.5/weather?"
         let apiKEY = "8bc788550c1e87a3b97b2e89a3135b30"
-        let weatherCity =  encoreURL(encodeURL: Weather.citySearched) //Suppression useless whitespace
+        let weatherCity =  Weather.citySearched.withReplacedCharacters(" ", by: "%20") //Replace whitespace
         let unitsWeather = "metric"
         let weatherURL = URL(string: "\(weatherAPI)q=\(weatherCity)&APPID=\(apiKEY)&units=\(unitsWeather)")
         return weatherURL!
      }
-    
-    func encoreURL(encodeURL: String) -> String {
-       var URLencodage = encodeURL.trimmingCharacters(in: .whitespaces)
-        URLencodage = URLencodage.replacingOccurrences(of: " ", with: "%20")
-        return URLencodage
-    }
 }
