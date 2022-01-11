@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct MoneyJSONStructure {
+struct ExchangeJSONStructure {
     let rates: takeRates?
 }
 
-extension MoneyJSONStructure: Decodable {
+extension ExchangeJSONStructure: Decodable {
     enum CodingKeys: String, CodingKey {
         case rates = "rates"
     }

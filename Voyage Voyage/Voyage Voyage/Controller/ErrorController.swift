@@ -9,8 +9,14 @@ import Foundation
 import UIKit
 
 class ErrorController {
-    public func presentAlertNetwork(controller: UIViewController) {
-        let alertVC = UIAlertController(title: "Error", message: "The quote download failed.", preferredStyle: .alert)
+    public func presentAlertTranslate(controller: UIViewController) {
+        let alertVC = UIAlertController(title: "Error", message: "Translate network error.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        controller.present(alertVC, animated: true, completion: nil)
+    }
+    
+    public func presentAlertExchange(controller: UIViewController) {
+        let alertVC = UIAlertController(title: "Error", message: "Exchange network error.", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         controller.present(alertVC, animated: true, completion: nil)
     }

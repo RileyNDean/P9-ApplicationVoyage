@@ -30,7 +30,7 @@ class Translation {
         let langCut = lang.cutString
         let baseLang = langCut.last!
         let langAcronym = String(baseLang.lowercased())
-        Translate.langDestination = langAcronym
+        Translate.destinationLanguage = langAcronym
     }
     
     func getTranslatedText(_ text: [String]) {
@@ -38,9 +38,8 @@ class Translation {
         delegate?.translatedTextView(newText)
     }
     
-    
     func modifyText(_ text: String) {
-        Translate.textTranslate = text.withReplacedCharacters(" ", by: "%20")
+        Translate.translatedText = text.withReplacedCharacters(" ", by: "%20")
     }
 }
 

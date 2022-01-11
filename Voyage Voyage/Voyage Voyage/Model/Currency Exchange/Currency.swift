@@ -12,23 +12,29 @@ let currency = ["Japan - JPY",
 "United Kingdoms - GBP",
 "Austral - AUD"]
 
-enum CurrencyChange: String {
+enum CurrencyAcronym: String {
     case JPY,USD,GBP,AUD
 }
 
 class CurrencyExchange {
     
     weak var delegate: CurrencyDelegate?
-    var exchangeCalculate: String = ""
+    var exchangeRateCalculate: String = ""
     
-    func calculExchange(eurMount: String, deviseMount: Double) {
+    func calculRateExchange(eurMount: String, deviseMount: Double) {
         let amount = Double(eurMount)!
         let change = amount * Double(round(100 * deviseMount)/100) //Multiply the double to round 10^(the number of decimal place)
-        exchangeCalculate = String(format: "%.2f", change)
-        delegate?.currencyCalculated(currencyMount: exchangeCalculate)
+        exchangeRateCalculate = String(format: "%.2f", change)
+        delegate?.calculatedExchange(currencyMount: exchangeRateCalculate)
+    }
+    
+    func takeCurrencyAcronym(_ currency: String) -> String { // cut string for acronym
+        let currencyCut = currency.cutString
+        let currencyAcronym = currencyCut.last!
+        return String(currencyAcronym)
     }
 }
 
 protocol CurrencyDelegate: NSObject {
-    func currencyCalculated(currencyMount: String)
+    func calculatedExchange(currencyMount: String)
 }

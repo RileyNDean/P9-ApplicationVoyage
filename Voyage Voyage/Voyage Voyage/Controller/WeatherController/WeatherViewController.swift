@@ -20,7 +20,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
         cityWeather.delegate = self
-        getweather()
+        getWeather()
     }
  
     @IBAction func dissmissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -30,8 +30,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if cityWeather.text == nil {
             cityWeather.returnKeyType = .default
-        }
-        else {
+        } else {
             cityWeather.returnKeyType = .search
         }
     }
@@ -40,16 +39,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         if cityWeather.returnKeyType == .default {
             cityWeather.resignFirstResponder()
         }
-        else if cityWeather.returnKeyType == .search
-        {
-            Weather.searchCity = textField.text!
-            getweather()
+        else if cityWeather.returnKeyType == .search {
+            Weather.citySearched = textField.text!
+            getWeather()
             cityWeather.resignFirstResponder()
         }
         return false
     }
     
-    func getweather() {
+    func getWeather() {
         Weather.shared.getWeather { success, weather in
             if success, let weather = weather {
                 self.updateWeather(weather: weather)

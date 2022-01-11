@@ -11,7 +11,7 @@ struct BaseLang: Codable {
     var lang: String
 }
 
-struct TextTranslate: Decodable {
+struct TranslatedText: Decodable {
     let text: [String]
     let lang: String
 }

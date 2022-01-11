@@ -213,7 +213,7 @@
         <!--Money-->
         <scene sceneID="XY6-9L-dqf">
             <objects>
-                <viewController id="Q4M-u3-lVf" customClass="MoneyViewController" customModule="Voyage_Voyage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Q4M-u3-lVf" customClass="ExchangeViewController" customModule="Voyage_Voyage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rN8-7a-pBQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,12 +334,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Money" image="moneyicon" id="vtM-C2-tbh"/>
                     <connections>
-                        <outlet property="changeRate" destination="Mua-5O-MtI" id="gWt-Yf-Xpa"/>
-                        <outlet property="changeResult" destination="6AO-H0-Nsy" id="qSh-bm-pHS"/>
-                        <outlet property="changeSymbol" destination="bsr-6t-QgN" id="2kl-av-GQj"/>
+                        <outlet property="currencySymbol" destination="bsr-6t-QgN" id="2kl-av-GQj"/>
                         <outlet property="dateRates" destination="6E6-h8-MGD" id="bM0-nW-oC9"/>
                         <outlet property="deviseSelect" destination="fdQ-iq-Ebe" id="NR4-ue-f8C"/>
                         <outlet property="euroAmount" destination="T4v-xb-CCW" id="FsV-fC-kCO"/>
+                        <outlet property="exchangeRate" destination="Mua-5O-MtI" id="gWt-Yf-Xpa"/>
+                        <outlet property="exchangeResult" destination="6AO-H0-Nsy" id="qSh-bm-pHS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wny-9h-eMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

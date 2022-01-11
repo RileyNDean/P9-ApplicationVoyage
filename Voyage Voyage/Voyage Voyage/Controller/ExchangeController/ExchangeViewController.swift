@@ -7,18 +7,21 @@
 
 import UIKit
 
-class MoneyViewController: UIViewController, CurrencyDelegate {
-
+class ExchangeViewController: UIViewController, CurrencyDelegate {
+    
     @IBOutlet weak var dateRates: UILabel!
-    @IBOutlet weak var changeRate: UILabel!
-    @IBOutlet weak var changeResult: UILabel!
-    @IBOutlet weak var changeSymbol: UILabel!
+    @IBOutlet weak var exchangeRate: UILabel!
+    @IBOutlet weak var exchangeResult: UILabel!
+    @IBOutlet weak var currencySymbol: UILabel!
     @IBOutlet weak var deviseSelect: UIPickerView!
     @IBOutlet weak var euroAmount: UITextField!
-    var currencyChoose: takeRates?
+    
+    var chosenCurrency: takeRates?
     let calculExchange = CurrencyExchange()
-    var rateDate: MoneyJSONStructure?
-    var currencyRate: Double?
+    var rateDate: ExchangeJSONStructure?
+    let errorController = ErrorController()
+    
+    var currencyExchangeRate: Double?
     var eurAmount: String?
     let todaysDate = NSDate()
     
@@ -38,16 +41,16 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
         overrideUserInterfaceStyle = .dark
         euroAmount.delegate = self
         changeCurrency(currency: .JPY)
-        getCurrencyChange()
+        getCurrencyExchange()
     }
-
-    func getCurrencyChange() {
-        MoneyTrade.shared.getMoney { success, money in
+    
+    func getCurrencyExchange() {
+        Exchange.shared.getExchange { success, money in
             if success, let money = money {
-                self.currencyChoose = money.rates
+                self.chosenCurrency = money.rates
             }
             else {
-                print("erreur?")
+                self.errorController.presentAlertTranslate(controller: self)
             }
         }
     }
@@ -58,43 +61,42 @@ class MoneyViewController: UIViewController, CurrencyDelegate {
     
     func convertCalculExchange() {
         guard let eurAmount = self.eurAmount else {return}
-        guard let exchangeRate = currencyRate else {return}
-        calculExchange.calculExchange(eurMount: eurAmount, deviseMount: exchangeRate)
+        guard let exchangeRate = currencyExchangeRate else {return}
+        calculExchange.calculRateExchange(eurMount: eurAmount, deviseMount: exchangeRate)
     }
     
-    func currencyCalculated(currencyMount: String) {
-        changeResult.text = currencyMount
+    func calculatedExchange(currencyMount: String) {
+        exchangeResult.text = currencyMount
     }
 }
 
 //MARK: Extension for DateTimer Refresh
-extension  MoneyViewController {
+extension  ExchangeViewController {
     override func viewWillAppear(_ animated: Bool) {
         dateRates.text = "Date : \(String(Date.getCurrentDate()))"
         checkTimer()
     }
+    
     func set24HrTimer() {
         let currentDate = NSDate()
         let newDate = NSDate(timeInterval: 86400, since: currentDate as Date)
-
+        
         UserDefaults.standard.setValue(newDate, forKey: "waitingDate")
     }
+    
     func checkTimer() {
         if let waitingDate:NSDate = UserDefaults.standard.value(forKey: "waitingDate") as? NSDate {
-                if (todaysDate.compare(waitingDate as Date) == ComparisonResult.orderedDescending) {
-                    getCurrencyChange()
-                    set24HrTimer()
-                }
-            else {
-                print(waitingDate.description)
+            if (todaysDate.compare(waitingDate as Date) == ComparisonResult.orderedDescending) {
+                getCurrencyExchange()
+                set24HrTimer()
             }
-            }
+        }
     }
 }
 
 
 //MARK: Extension for UITextField
-extension MoneyViewController: UITextFieldDelegate {
+extension ExchangeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var realAmount = euroAmount.text! + string
         
@@ -107,7 +109,7 @@ extension MoneyViewController: UITextFieldDelegate {
             }
             realAmountChange(realAmount)
             convertCalculExchange()
-        return true
+            return true
         } else  {
             let maxAmount = 6
             let currentAmount: NSString = (realAmount) as NSString
@@ -125,7 +127,7 @@ extension MoneyViewController: UITextFieldDelegate {
 
 
 //MARK: Extension for PickerView
-extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ExchangeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -140,43 +142,37 @@ extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let currencyAcronym = CurrencyChange(rawValue: takeCurrencyAcronym(currency[row]))!
-        changeCurrency(currency: currencyAcronym)   
+        let currencyAcronym = CurrencyAcronym(rawValue: calculExchange.takeCurrencyAcronym(currency[row]))!
+        changeCurrency(currency: currencyAcronym)
     }
     
-    func changeCurrency(currency: CurrencyChange) {
+    func changeCurrency(currency: CurrencyAcronym) {
         switch currency {
         case .JPY:
-            changeSymbol.text = "¥"
-            guard let JPY = currencyChoose?.JPY! else {return}
-            changeRate.text = "Exchange rate : \(String(describing: JPY))"
-            self.currencyRate = currencyChoose?.JPY!
+            currencySymbol.text = "¥"
+            guard let JPY = chosenCurrency?.JPY! else {return}
+            exchangeRate.text = "Exchange rate : \(String(describing: JPY))"
+            self.currencyExchangeRate = chosenCurrency?.JPY!
             convertCalculExchange()
         case .USD:
-            changeSymbol.text = "$"
-            guard let USD = currencyChoose?.USD! else {return}
-            changeRate.text = "Exchange rate : \(String(describing: USD))"
-            self.currencyRate = currencyChoose?.USD!
+            currencySymbol.text = "$"
+            guard let USD = chosenCurrency?.USD! else {return}
+            exchangeRate.text = "Exchange rate : \(String(describing: USD))"
+            self.currencyExchangeRate = chosenCurrency?.USD!
             convertCalculExchange()
         case .GBP:
-            changeSymbol.text = "£"
-            guard let GBP = currencyChoose?.GBP! else {return}
-            changeRate.text = "Exchange rate : \(String(describing: GBP))"
-            self.currencyRate = currencyChoose?.GBP!
+            currencySymbol.text = "£"
+            guard let GBP = chosenCurrency?.GBP! else {return}
+            exchangeRate.text = "Exchange rate : \(String(describing: GBP))"
+            self.currencyExchangeRate = chosenCurrency?.GBP!
             convertCalculExchange()
         case .AUD:
-            changeSymbol.text = "$"
-            guard let AUD = currencyChoose?.AUD! else {return}
-            changeRate.text = "Exchange rate : \(String(describing: AUD))"
-            self.currencyRate = currencyChoose?.AUD!
+            currencySymbol.text = "$"
+            guard let AUD = chosenCurrency?.AUD! else {return}
+            exchangeRate.text = "Exchange rate : \(String(describing: AUD))"
+            self.currencyExchangeRate = chosenCurrency?.AUD!
             convertCalculExchange()
         }
-    }
-    
-    func takeCurrencyAcronym(_ currency: String) -> String { // cut string for acronym
-        let currencyCut = currency.cutString
-        let currencyAcronym = currencyCut.last!
-        return String(currencyAcronym)
     }
 }
 
