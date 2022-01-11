@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
  
     @IBAction func dissmissKeyboard(_ sender: UITapGestureRecognizer) {
         cityWeather.resignFirstResponder()
+    
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -62,7 +63,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         tempLabel.text = "\(String(describing: Int(temp)))°" //update temperature
         guard let description = weather.description?.localizedCapitalized else {return}
         descriptionLabel.text = description //update the description
-        guard let weatherIconName = weather.icon?.localizedCapitalized else {return}
+        guard let weatherIconName = weather.icon else {return}
         weatherImage.image = UIImage(named: "\(weatherIconName)")! //change background image with the weather
     }
 }
+

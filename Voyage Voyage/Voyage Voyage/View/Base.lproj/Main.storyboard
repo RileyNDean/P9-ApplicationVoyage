@@ -254,7 +254,7 @@
                                     <constraint firstItem="6E6-h8-MGD" firstAttribute="leading" secondItem="p5S-5L-eTW" secondAttribute="leading" constant="8" id="uiA-bk-Frx"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-dZ-G8r">
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-dZ-G8r">
                                 <rect key="frame" x="20" y="146" width="343" height="114"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AO-H0-Nsy">
@@ -285,7 +285,7 @@
                                     <constraint firstAttribute="width" secondItem="WwS-dZ-G8r" secondAttribute="height" multiplier="358:119" id="sPO-nH-fiL"/>
                                 </constraints>
                             </view>
-                            <pickerView alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdQ-iq-Ebe">
+                            <pickerView alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdQ-iq-Ebe">
                                 <rect key="frame" x="20" y="305" width="343" height="98"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -296,7 +296,7 @@
                                     <outlet property="delegate" destination="Q4M-u3-lVf" id="83R-PE-9Lw"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="€" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T4v-xb-CCW">
+                            <textField opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="€" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T4v-xb-CCW">
                                 <rect key="frame" x="61.5" y="424" width="261" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="T4v-xb-CCW" secondAttribute="height" multiplier="261:34" id="1Ta-rp-lAX"/>
@@ -308,7 +308,7 @@
                                     <outlet property="delegate" destination="Q4M-u3-lVf" id="Sqx-dv-19E"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHI-8E-jwE">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHI-8E-jwE">
                                 <rect key="frame" x="168" y="478" width="39" height="42"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
