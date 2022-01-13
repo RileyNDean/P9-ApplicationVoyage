@@ -10,20 +10,20 @@ import Foundation
 
 class Translate {
     static var shared = Translate()
-    private init() {}
+    private init() {
+        self.translatedTextSession = URLSession(configuration: .default)
+    }
     
     private static let translateURL = URL(string: "https://translate.yandex.net/api/v1.5/tr.json/translate?")!
-    private static let translateAPIKey = "key=trnsl.1.1.20220110T102058Z.105f566fbff69b26.da39ca19cc81893c4dda2149efeb28fcbd875c6b"
+    private static let translateAPIKey = "trnsl.1.1.20220110T102058Z.105f566fbff69b26.da39ca19cc81893c4dda2149efeb28fcbd875c6b"
     private var task: URLSessionDataTask?
     
     static var translatedText = "J'aime le chocolat"
     static var destinationLanguage = "en"
     
-    private var baseLangSession = URLSession(configuration: .default)
-    private var translatedTextSession = URLSession(configuration: .default)
+    private var translatedTextSession: URLSession
     
-    init(baseLangSession: URLSession, translatedTextSession: URLSession) {
-        self.baseLangSession = baseLangSession
+    init(translatedTextSession: URLSession) {
         self.translatedTextSession = translatedTextSession
     }
 }
@@ -60,10 +60,9 @@ extension Translate {
         var request = URLRequest(url: Translate.translateURL)
         request.httpMethod = "POST"
         
-        let option = "fr"
         let lang = Translate.destinationLanguage
         let text = Translate.translatedText
-        let body = "lang=\(lang)&\(Translate.translateAPIKey)&text=\(text)&option=\(option)"
+        let body = "lang=\(lang)&key=\(Translate.translateAPIKey)&text=\(text)"
         request.httpBody = body.data(using: .utf8)
         return request
     }

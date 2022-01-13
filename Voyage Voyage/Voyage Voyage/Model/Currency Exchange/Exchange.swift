@@ -9,10 +9,12 @@ import Foundation
 
 class Exchange {
     static var shared = Exchange()
-    private init () {}
+    private init () {
+        self.exchangeSession = URLSession(configuration: .default)
+    }
     
     private var task: URLSessionDataTask?
-    private var exchangeSession = URLSession(configuration: .default)
+    private var exchangeSession: URLSession
     
     init(exchangeSession: URLSession){
         self.exchangeSession = exchangeSession

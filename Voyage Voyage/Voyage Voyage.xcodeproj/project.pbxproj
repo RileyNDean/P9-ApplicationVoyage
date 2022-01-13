@@ -32,7 +32,25 @@
 		53DBEFB4278E248700180917 /* TranslateController + TranslateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFB3278E248700180917 /* TranslateController + TranslateDelegate.swift */; };
 		53DBEFB6278E24BE00180917 /* TranslateController + TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFB5278E24BE00180917 /* TranslateController + TextView.swift */; };
 		53DBEFB8278E24E400180917 /* TranslateController + Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFB7278E24E400180917 /* TranslateController + Menu.swift */; };
+		53DBEFD3278F1DC500180917 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFD2278F1DC500180917 /* WeatherTests.swift */; };
+		53DBEFDA278F1E0C00180917 /* Protocol +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFD9278F1E0C00180917 /* Protocol +.swift */; };
+		53DBEFDE278F246300180917 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 53DBEFDD278F246300180917 /* Weather.json */; };
+		53DBEFE0278F247100180917 /* Translate.json in Resources */ = {isa = PBXBuildFile; fileRef = 53DBEFDF278F247100180917 /* Translate.json */; };
+		53DBEFE2278F248300180917 /* Exchange.json in Resources */ = {isa = PBXBuildFile; fileRef = 53DBEFE1278F248300180917 /* Exchange.json */; };
+		53DBEFE4278F28CD00180917 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFE3278F28CD00180917 /* FakeResponseData.swift */; };
+		53DBEFF3279029D000180917 /* ExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFF2279029D000180917 /* ExchangeTests.swift */; };
+		53DBEFF527902D6600180917 /* TranslateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBEFF427902D6600180917 /* TranslateTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		53DBEFD4278F1DC500180917 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BF46772788283900FC5AC8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53BF467E2788283900FC5AC8;
+			remoteInfo = "Voyage Voyage";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		53BF467F2788283900FC5AC8 /* Voyage Voyage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voyage Voyage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,10 +80,26 @@
 		53DBEFB3278E248700180917 /* TranslateController + TranslateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController + TranslateDelegate.swift"; sourceTree = "<group>"; };
 		53DBEFB5278E24BE00180917 /* TranslateController + TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController + TextView.swift"; sourceTree = "<group>"; };
 		53DBEFB7278E24E400180917 /* TranslateController + Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController + Menu.swift"; sourceTree = "<group>"; };
+		53DBEFD0278F1DC500180917 /* VoyageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoyageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53DBEFD2278F1DC500180917 /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
+		53DBEFD9278F1E0C00180917 /* Protocol +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol +.swift"; sourceTree = "<group>"; };
+		53DBEFDD278F246300180917 /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
+		53DBEFDF278F247100180917 /* Translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translate.json; sourceTree = "<group>"; };
+		53DBEFE1278F248300180917 /* Exchange.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Exchange.json; sourceTree = "<group>"; };
+		53DBEFE3278F28CD00180917 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		53DBEFF2279029D000180917 /* ExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTests.swift; sourceTree = "<group>"; };
+		53DBEFF427902D6600180917 /* TranslateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		53BF467C2788283900FC5AC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53DBEFCD278F1DC500180917 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				53BF46812788283900FC5AC8 /* Voyage Voyage */,
+				53DBEFD1278F1DC500180917 /* VoyageTests */,
 				53BF46802788283900FC5AC8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				53BF467F2788283900FC5AC8 /* Voyage Voyage.app */,
+				53DBEFD0278F1DC500180917 /* VoyageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +240,21 @@
 			path = TranslateController;
 			sourceTree = "<group>";
 		};
+		53DBEFD1278F1DC500180917 /* VoyageTests */ = {
+			isa = PBXGroup;
+			children = (
+				53DBEFD2278F1DC500180917 /* WeatherTests.swift */,
+				53DBEFF2279029D000180917 /* ExchangeTests.swift */,
+				53DBEFF427902D6600180917 /* TranslateTests.swift */,
+				53DBEFD9278F1E0C00180917 /* Protocol +.swift */,
+				53DBEFDD278F246300180917 /* Weather.json */,
+				53DBEFDF278F247100180917 /* Translate.json */,
+				53DBEFE1278F248300180917 /* Exchange.json */,
+				53DBEFE3278F28CD00180917 /* FakeResponseData.swift */,
+			);
+			path = VoyageTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +275,24 @@
 			productReference = 53BF467F2788283900FC5AC8 /* Voyage Voyage.app */;
 			productType = "com.apple.product-type.application";
 		};
+		53DBEFCF278F1DC500180917 /* VoyageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53DBEFD6278F1DC500180917 /* Build configuration list for PBXNativeTarget "VoyageTests" */;
+			buildPhases = (
+				53DBEFCC278F1DC500180917 /* Sources */,
+				53DBEFCD278F1DC500180917 /* Frameworks */,
+				53DBEFCE278F1DC500180917 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53DBEFD5278F1DC500180917 /* PBXTargetDependency */,
+			);
+			name = VoyageTests;
+			productName = VoyageTests;
+			productReference = 53DBEFD0278F1DC500180917 /* VoyageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -236,6 +305,10 @@
 				TargetAttributes = {
 					53BF467E2788283900FC5AC8 = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					53DBEFCF278F1DC500180917 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 53BF467E2788283900FC5AC8;
 					};
 				};
 			};
@@ -253,6 +326,7 @@
 			projectRoot = "";
 			targets = (
 				53BF467E2788283900FC5AC8 /* Voyage Voyage */,
+				53DBEFCF278F1DC500180917 /* VoyageTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,6 +339,16 @@
 				53BF468F2788283B00FC5AC8 /* LaunchScreen.storyboard in Resources */,
 				53BF468C2788283B00FC5AC8 /* Assets.xcassets in Resources */,
 				53BF468A2788283900FC5AC8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53DBEFCE278F1DC500180917 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53DBEFE2278F248300180917 /* Exchange.json in Resources */,
+				53DBEFE0278F247100180917 /* Translate.json in Resources */,
+				53DBEFDE278F246300180917 /* Weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +384,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53DBEFCC278F1DC500180917 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53DBEFD3278F1DC500180917 /* WeatherTests.swift in Sources */,
+				53DBEFE4278F28CD00180917 /* FakeResponseData.swift in Sources */,
+				53DBEFF527902D6600180917 /* TranslateTests.swift in Sources */,
+				53DBEFF3279029D000180917 /* ExchangeTests.swift in Sources */,
+				53DBEFDA278F1E0C00180917 /* Protocol +.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		53DBEFD5278F1DC500180917 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53BF467E2788283900FC5AC8 /* Voyage Voyage */;
+			targetProxy = 53DBEFD4278F1DC500180917 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		53BF46882788283900FC5AC8 /* Main.storyboard */ = {
@@ -496,6 +600,50 @@
 			};
 			name = Release;
 		};
+		53DBEFD7278F1DC500180917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = frbgndhayan.VoyageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voyage Voyage.app/Voyage Voyage";
+			};
+			name = Debug;
+		};
+		53DBEFD8278F1DC500180917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = frbgndhayan.VoyageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voyage Voyage.app/Voyage Voyage";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -513,6 +661,15 @@
 			buildConfigurations = (
 				53BF46942788283B00FC5AC8 /* Debug */,
 				53BF46952788283B00FC5AC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53DBEFD6278F1DC500180917 /* Build configuration list for PBXNativeTarget "VoyageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53DBEFD7278F1DC500180917 /* Debug */,
+				53DBEFD8278F1DC500180917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

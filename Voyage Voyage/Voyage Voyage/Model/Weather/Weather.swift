@@ -9,14 +9,17 @@ import Foundation
 
 class Weather {
     static var shared = Weather()
-    private init() {} //allows you to have only one Weather class
+    private init() {
+        self.weatherSession = URLSession(configuration: .default)
+    } //allows you to have only one Weather class
     static var citySearched = "New York"
     private var task: URLSessionDataTask?
-    private var weatherSession = URLSession(configuration: .default)
+    private var weatherSession: URLSession
     
-    init(weatherSession: URLSession){ //to get weatherSession private but usable for the tests
+    init(weatherSession: URLSession) {
         self.weatherSession = weatherSession
     }
+
 }
 
 extension Weather {
