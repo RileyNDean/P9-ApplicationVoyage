@@ -32,7 +32,8 @@ extension TranslateViewController {
             in
             self.selectLang.setTitle(self.translateDelegate.getDestinationLang(langage), for: .normal) //modify the button name
             self.translateDelegate.getDestinationLangTranslate(langage) //modify destination language
-            self.getTranslation() //get the translation
+            let textBase = self.baseText.text
+            self.getTranslation(textBase!) //get the translation
         }
     }
 }

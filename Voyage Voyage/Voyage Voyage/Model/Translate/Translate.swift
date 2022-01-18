@@ -18,7 +18,6 @@ class Translate {
     private static let translateAPIKey = "trnsl.1.1.20220110T102058Z.105f566fbff69b26.da39ca19cc81893c4dda2149efeb28fcbd875c6b"
     private var task: URLSessionDataTask?
     
-    static var translatedText = "J'aime le chocolat"
     static var destinationLanguage = "en"
     
     private var translatedTextSession: URLSession
@@ -31,8 +30,8 @@ class Translate {
 //MARK: extension for the request
 extension Translate {
     
-    func getTranslatedText(callback: @escaping (Bool, TranslatedText?) -> Void) {
-        let request = createTranslateRequest()
+    func getTranslatedText(_ textForTranslate: String, callback: @escaping (Bool, TranslatedText?) -> Void) {
+        let request = createTranslateRequest(textForTranslate)
         
         task?.cancel()
         
@@ -46,22 +45,22 @@ extension Translate {
                     callback(false, nil)
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode(TranslatedText.self, from: data) else {
+                guard let responseJSON = try? JSONDecoder().decode(TranslatedTextResponse.self, from: data) else {
                     callback(false,nil)
                     return
                 }
-                return callback(true, responseJSON)
+                return callback(true, TranslatedText(text: responseJSON.text[0].description, lang: responseJSON.lang))
             }
         }
         task?.resume()
     }
     
-    private func createTranslateRequest() -> URLRequest {
+    private func createTranslateRequest(_ textForTranslate: String) -> URLRequest {
         var request = URLRequest(url: Translate.translateURL)
         request.httpMethod = "POST"
         
         let lang = Translate.destinationLanguage
-        let text = Translate.translatedText
+        let text = textForTranslate
         let body = "lang=\(lang)&key=\(Translate.translateAPIKey)&text=\(text)"
         request.httpBody = body.data(using: .utf8)
         return request

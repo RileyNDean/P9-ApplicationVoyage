@@ -26,9 +26,10 @@ class TranslateTests: XCTestCase {
         configuration.protocolClasses = [TestURLProtocol.self]
         let session = URLSession(configuration: configuration)
         let translateService = Translate(translatedTextSession: session)
+        let text = "I like Chocolate"
         // When
         let expectation = XCTestExpectation(description: "wait for queu change.")
-        translateService.getTranslatedText { success, translate in
+        translateService.getTranslatedText(text) { success, translate in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(translate)
@@ -49,9 +50,10 @@ class TranslateTests: XCTestCase {
         configuration.protocolClasses = [TestURLProtocol.self]
         let session = URLSession(configuration: configuration)
         let translateService = Translate(translatedTextSession: session)
+        let text = "I like Chocolate"
         //When
         let expectation = XCTestExpectation(description: "wait for queu change")
-        translateService.getTranslatedText { success, translate in
+        translateService.getTranslatedText(text) { success, translate in
             //Then
             XCTAssertFalse(success)
             XCTAssertNil(translate)
@@ -72,9 +74,10 @@ class TranslateTests: XCTestCase {
         configuration.protocolClasses = [TestURLProtocol.self]
         let session = URLSession(configuration: configuration)
         let translateService = Translate(translatedTextSession: session)
+        let text = "I like Chocolate"
         //When
         let expectation = XCTestExpectation(description: "wait for queu change")
-        translateService.getTranslatedText { success, translate in
+        translateService.getTranslatedText(text) { success, translate in
             //Then
             XCTAssertFalse(success)
             XCTAssertNil(translate)
@@ -95,9 +98,10 @@ class TranslateTests: XCTestCase {
         configuration.protocolClasses = [TestURLProtocol.self]
         let session = URLSession(configuration: configuration)
         let translateService = Translate(translatedTextSession: session)
+        let text = "I like Chocolate"
         //When
         let expectation = XCTestExpectation(description: "wait for queu change")
-        translateService.getTranslatedText { success, translate in
+        translateService.getTranslatedText(text) { success, translate in
             //Then
             XCTAssertFalse(success)
             XCTAssertNil(translate)
@@ -118,12 +122,13 @@ class TranslateTests: XCTestCase {
         configuration.protocolClasses = [TestURLProtocol.self]
         let session = URLSession(configuration: configuration)
         let translateService = Translate(translatedTextSession: session)
+        let text = "J'aime le chocolat"
         //When
         let expectation = XCTestExpectation(description: "wait for queu change")
-        translateService.getTranslatedText { success, translate in
+        translateService.getTranslatedText(text) { success, translate in
             //Then
             let lang = "fr-en"
-            let text = ["I like chocolate"]
+            let text = "I like chocolate"
             
             XCTAssertTrue(success)
             XCTAssertNotNil(translate)
@@ -134,13 +139,6 @@ class TranslateTests: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
-    }
-
-    func testModifyTextWhenStringWithSpaceThenReplaceSpaceWithPercent20() {
-        let translation = Translation()
-        translation.modifyText("I like Chocolate")
-        let textModifier = Translate.translatedText
-        XCTAssertEqual(textModifier, "I%20like%20Chocolate")
     }
     
     func testGetDestinationLangTranslateShouldCutStringAndGiveLastWordLowercased() {

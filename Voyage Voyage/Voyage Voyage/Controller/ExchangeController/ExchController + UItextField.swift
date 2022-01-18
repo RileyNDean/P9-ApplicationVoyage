@@ -16,24 +16,16 @@ extension ExchangeViewController: UITextFieldDelegate {
             realAmount.remove(at: realAmount.index(before: realAmount.endIndex)) //retire la derniere lettre (before index = avant dernier index car le dernier est out of range)
             guard realAmount != "" else { //on regarde si il est vide ou pas
                 euroAmount.text = "1" // si il est vide on rajoute quelque chose
-                realAmountChange(euroAmount.text!)
                 return euroAmount.text == "1"
             }
-            realAmountChange(realAmount)
-            convertCalculExchange()
+            convertCalculExchange(realAmount)
             return true
         } else  {
             let maxAmount = 6
             let currentAmount: NSString = (realAmount) as NSString
             let newAmount: NSString = currentAmount.replacingCharacters(in: range, with: string) as NSString //take the string charact mount
-            realAmountChange(realAmount)
-            convertCalculExchange()
+            convertCalculExchange(realAmount)
             return newAmount.length <= maxAmount //check if the max amount is hit
         }
-    }
-    
-    //update  eurAmount with the real amount taped
-    private func realAmountChange(_ realAmount: String) {
-        self.eurAmount = realAmount
     }
 }

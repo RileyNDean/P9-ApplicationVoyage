@@ -40,11 +40,11 @@ class TranslateViewController: UIViewController {
         translatedText.resignFirstResponder()
     }
     
-    func getTranslation() {
-        Translate.shared.getTranslatedText {  success, text in
+    func getTranslation(_ textForTranslate: String) {
+        Translate.shared.getTranslatedText(textForTranslate) { success, text in
             if success, let text = text {
                 self.translateDelegate.getBaseLang(text.lang)
-                self.translateDelegate.getTranslatedText(text.text)
+                self.translatedText.text = text.text
             } else {
                 self.errorController.presentAlertTranslate(controller: self)
             }

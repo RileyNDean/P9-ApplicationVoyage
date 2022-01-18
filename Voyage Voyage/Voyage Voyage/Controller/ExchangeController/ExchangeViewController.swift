@@ -21,7 +21,6 @@ class ExchangeViewController: UIViewController, CurrencyDelegate {
     let errorController = ErrorController()
     
     var currencyExchangeRate: Double?
-    var eurAmount: String?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -57,10 +56,9 @@ class ExchangeViewController: UIViewController, CurrencyDelegate {
         euroAmount.resignFirstResponder()
     }
     
-    func convertCalculExchange() {
-        guard let eurAmount = self.eurAmount else {return}
+    func convertCalculExchange(_ euroAmount: String) {
         guard let exchangeRate = currencyExchangeRate else {return}
-        calculExchange.calculRateExchange(eurMount: eurAmount, deviseMount: exchangeRate)
+        calculExchange.calculRateExchange(eurMount: euroAmount, deviseMount: exchangeRate)
     }
     
     func calculatedExchange(currencyMount: String) {

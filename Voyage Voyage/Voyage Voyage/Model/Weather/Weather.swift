@@ -24,8 +24,8 @@ class Weather {
 
 extension Weather {
     
-    func getWeather(callback: @escaping (Bool, WeatherData?) -> Void) {
-        let weatherURL = weatherURLRequest()
+    func getWeather(_ citySearched: String,callback: @escaping (Bool, WeatherData?) -> Void) {
+        let weatherURL = weatherURLRequest(citySearched)
         
         task?.cancel()
         
@@ -49,15 +49,14 @@ extension Weather {
                 callback(true, WeatherData(temp: temp!, description: description!, icon: icon!))
             }
         }
-        
         task?.resume()
     }
     
     //get URL for the request GET
-    private func weatherURLRequest() -> URL {
+    private func weatherURLRequest(_ citySearched: String) -> URL {
         let weatherAPI = "https://api.openweathermap.org/data/2.5/weather?"
         let apiKEY = "8bc788550c1e87a3b97b2e89a3135b30"
-        let weatherCity =  Weather.citySearched.withReplacedCharacters(" ", by: "%20") //Replace whitespace
+        let weatherCity =  citySearched.withReplacedCharacters(" ", by: "%20") //Replace whitespace
         let unitsWeather = "metric"
         let weatherURL = URL(string: "\(weatherAPI)q=\(weatherCity)&APPID=\(apiKEY)&units=\(unitsWeather)")
         return weatherURL!

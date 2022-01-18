@@ -35,25 +35,25 @@ extension ExchangeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             guard let JPY = chosenCurrency?.JPY! else {return}
             exchangeRate.text = "Exchange rate : \(String(describing: JPY))"
             self.currencyExchangeRate = chosenCurrency?.JPY!
-            convertCalculExchange()
+            convertCalculExchange(euroAmount.text!)
         case .USD:
             currencySymbol.text = "$"
             guard let USD = chosenCurrency?.USD! else {return}
             exchangeRate.text = "Exchange rate : \(String(describing: USD))"
             self.currencyExchangeRate = chosenCurrency?.USD!
-            convertCalculExchange()
+            convertCalculExchange(euroAmount.text!)
         case .GBP:
             currencySymbol.text = "£"
             guard let GBP = chosenCurrency?.GBP! else {return}
             exchangeRate.text = "Exchange rate : \(String(describing: GBP))"
             self.currencyExchangeRate = chosenCurrency?.GBP!
-            convertCalculExchange()
+            convertCalculExchange(euroAmount.text!)
         case .AUD:
             currencySymbol.text = "$"
             guard let AUD = chosenCurrency?.AUD! else {return}
             exchangeRate.text = "Exchange rate : \(String(describing: AUD))"
             self.currencyExchangeRate = chosenCurrency?.AUD!
-            convertCalculExchange()
+            convertCalculExchange(euroAmount.text!)
         }
     }
 }

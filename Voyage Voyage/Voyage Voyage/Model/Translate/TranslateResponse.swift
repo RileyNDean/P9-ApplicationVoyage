@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct TranslatedText: Decodable {
+struct TranslatedTextResponse: Decodable {
     let text: [String]
+    let lang: String
+}
+
+struct TranslatedText: Decodable {
+    let text: String
     let lang: String
 }
